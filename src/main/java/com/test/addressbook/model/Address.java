@@ -5,13 +5,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import org.springframework.hateoas.ResourceSupport;
 
 @Entity
-public class Address {
+public class Address extends ResourceSupport {
 
   @Id
   @GeneratedValue
-  private Long id;
+  private Long addressId;
 
   private String houseNumber;
   private String streetName;
@@ -21,12 +22,12 @@ public class Address {
   @ManyToOne(fetch = FetchType.LAZY)
   private Customer customer;
 
-  public Long getId() {
-    return id;
+  public Long getAddressId() {
+    return addressId;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public void setAddressId(Long addressId) {
+    this.addressId = addressId;
   }
 
   public String getHouseNumber() {

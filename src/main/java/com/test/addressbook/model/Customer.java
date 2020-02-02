@@ -1,30 +1,35 @@
 package com.test.addressbook.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import org.springframework.hateoas.ResourceSupport;
 
 @Entity
-public class Customer {
+public class Customer extends ResourceSupport {
 
   @Id
   @GeneratedValue
-  private Long id;
+  @Column(name = "ID")
+  private Long customerId;
 
   private String firstName;
   private String lastName;
 
   @OneToMany(mappedBy = "customer")
+  @JsonIgnore
   private List<Address> addresses;
 
-  public Long getId() {
-    return id;
+  public Long getCustomerId() {
+    return customerId;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public void setCustomerId(Long customerId) {
+    this.customerId = customerId;
   }
 
   public String getFirstName() {

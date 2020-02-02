@@ -2,6 +2,7 @@ package com.test.addressbook.service;
 
 import com.test.addressbook.model.Customer;
 import com.test.addressbook.repository.CustomerRepository;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,8 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public List<Customer> findCustomersByLastName(String lastName) {
-    return null;
+    return customerRepository
+        .findByLastNameIgnoreCase(lastName)
+        .orElse(Arrays.asList());
   }
 }
