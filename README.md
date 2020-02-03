@@ -33,6 +33,9 @@ Address Book API
         mvn clean install
         java -jar target/address-book-svc-0.0.1-SNAPSHOT.jar
 
-##### Open your favourite browser and hit the below endpoint
+##### Open your favourite browser and hit the below endpoints
         
         http://localhost:8080/customers/root
+        http://localhost:8080/customers/williamson
+        http://localhost:8080/customers/waugh
+        
